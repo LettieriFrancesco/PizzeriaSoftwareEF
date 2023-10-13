@@ -1,0 +1,40 @@
+﻿@using PizzeriaSoftwareEF.Models
+@model List<DettaglioOrdini>
+
+@{
+    ViewBag.Title = "ViewCarrello";
+}
+
+<h2>ViewCarrello</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordini.IndirizzoConsegna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prodotti.NomeProdotto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantita)
+
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdDettaglio }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdDettaglio }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdDettaglio })
+            </td>
+        </tr>
+    }
+
+</table>
+@*<li>@Html.ActionLink("Check Out", "CheckOut", "Home", new { area = "" }, new { @class = "btn btn-danger" })</li>*@
+<a class="btn btn-danger btn btnb  mx-2" href="@Url.Action("CheckOut", "Home", new { parameter = $"{Model[0].Ordini.IdOrdine}" })">Check Out</a>

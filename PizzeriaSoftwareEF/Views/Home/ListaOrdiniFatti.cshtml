@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PizzeriaSoftwareEF.Models.Ordini>
+
+@{
+    ViewBag.Title = "ListaOrdiniFatti";
+}
+
+<h2 class="mb-5 text-danger text-center">Lista Ordini Effetuati</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.Clienti.Nome)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.DataOrdine)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.Importo)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.IndirizzoConsegna)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.StatoOrdine)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.Clienti.Nome)
+        </td>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.DataOrdine)
+        </td>
+        <td class="text-white">
+           € @Html.DisplayFor(modelItem => item.Importo)
+        </td>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.IndirizzoConsegna)
+        </td>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.StatoOrdine)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdOrdine }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdOrdine }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdOrdine })
+        </td>
+    </tr>
+}
+
+</table>

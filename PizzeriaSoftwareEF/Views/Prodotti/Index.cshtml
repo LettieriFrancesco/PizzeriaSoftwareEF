@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PizzeriaSoftwareEF.Models.Prodotti>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-danger text-center">Lista Prodotti</h2>
+
+@*<p>
+    @Html.ActionLink("Inserisci pro", "Create")
+</p>*@
+<a class="btn btn-danger mb-5" href="/Prodotti/Create">Inserisci prodotto</a>
+<table class="table">
+    <tr>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.NomeProdotto)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.Costo)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.TempoConsegna)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.FotoProdotto)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.Ingredienti)
+        </th>
+        <th class="text-danger">
+            @Html.DisplayNameFor(model => model.DescrizioneAggiuntiva)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.NomeProdotto)
+        </td>
+        <td class="text-white">
+           €@Html.DisplayFor(modelItem => item.Costo)
+        </td>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.TempoConsegna) min.
+        </td>
+        <td>
+            <img style="width:50px;" src="~/Content/FileUpload/@item.FotoProdotto" />
+            @*@Html.DisplayFor(modelItem => item.FotoProdotto)*@
+        </td>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.Ingredienti)
+        </td>
+        <td class="text-white">
+            @Html.DisplayFor(modelItem => item.DescrizioneAggiuntiva)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdProdotto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProdotto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdProdotto })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model PizzeriaSoftwareEF.Models.Prodotti
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@*<div>
+    <h4>Prodotti</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeProdotto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeProdotto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Costo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Costo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempoConsegna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempoConsegna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FotoProdotto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FotoProdotto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ingredienti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ingredienti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescrizioneAggiuntiva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescrizioneAggiuntiva)
+        </dd>
+
+    </dl>
+</div>*@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <img src="~/Content/FileUpload/@Model.FotoProdotto" />
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdProdotto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

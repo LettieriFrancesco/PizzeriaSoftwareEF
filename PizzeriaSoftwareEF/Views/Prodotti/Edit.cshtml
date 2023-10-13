@@ -1,0 +1,83 @@
+﻿@model PizzeriaSoftwareEF.Models.Prodotti
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4 class="text-danger text-center">Modifica Prodotto</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IdProdotto)
+    @*<div class="d-flex justify-content-center">*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.NomeProdotto, htmlAttributes: new { @class = "control-label col-md-2 text-danger" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomeProdotto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NomeProdotto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Costo, htmlAttributes: new { @class = "control-label col-md-2 text-danger" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Costo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Costo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TempoConsegna, htmlAttributes: new { @class = "control-label col-md-2 text-danger" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TempoConsegna, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TempoConsegna, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FotoProdotto, htmlAttributes: new { @class = "control-label col-md-2 text-danger" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FotoProdotto, new { htmlAttributes = new { @class = "form-control", id = "fotoProdotto", type = "file" } })
+                @Html.ValidationMessageFor(model => model.FotoProdotto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ingredienti, htmlAttributes: new { @class = "control-label col-md-2 text-danger" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ingredienti, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ingredienti, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DescrizioneAggiuntiva, htmlAttributes: new { @class = "control-label col-md-2 text-danger" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DescrizioneAggiuntiva, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DescrizioneAggiuntiva, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    @*</div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salva Modifiche" class="btn btn-danger mt-3 mb-2" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

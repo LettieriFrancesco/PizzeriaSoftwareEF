@@ -1,0 +1,58 @@
+﻿@model PizzeriaSoftwareEF.Models.Ordini
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ordini</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Clienti.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clienti.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataOrdine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataOrdine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Importo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Importo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndirizzoConsegna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndirizzoConsegna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatoOrdine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatoOrdine)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdOrdine }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
